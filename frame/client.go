@@ -16,6 +16,7 @@ type Client interface {
 	Icon(width, height int) *xgraphics.Image
 	Name() string
 	LabelColor() render.Color
+	BackgroundLabelColor() render.Color
 	ClientGeom() xrect.Rect
 	ValidateHeight(height int) int
 	ValidateWidth(width int) int

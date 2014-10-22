@@ -192,6 +192,28 @@ func (c *Client) LabelColor() render.Color {
 	return render.NewColor(0x795548)
 }
 
+func (c *Client) BackgroundLabelColor() render.Color {
+	switch {
+	case c.labelColor == 1:
+		return render.NewColor(0xf69988) // red
+	case c.labelColor == 2:
+		return render.NewColor(0xffcc80) // orange
+	case c.labelColor == 3:
+		return render.NewColor(0xfff59c) // yellow
+	case c.labelColor == 4:
+		return render.NewColor(0x72d572) // green
+	case c.labelColor == 5:
+		return render.NewColor(0xeeeeee) // grey
+	case c.labelColor == 6:
+		return render.NewColor(0x9fa8da) // blue
+	case c.labelColor == 7:
+		return render.NewColor(0xb39ddb) // purple
+	case c.labelColor == 8:
+		return render.NewColor(0xffffff) //black
+	}
+	return render.NewColor(0xbcaaa4)
+}
+
 func (c *Client) State() int {
 	return c.state
 }

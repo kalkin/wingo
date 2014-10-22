@@ -2,6 +2,7 @@ package xclient
 
 import (
 	"github.com/BurntSushi/xgb/xproto"
+	"github.com/BurntSushi/xgbutil/xprop"
 
 	"github.com/BurntSushi/xgbutil/ewmh"
 	"github.com/BurntSushi/xgbutil/icccm"
@@ -87,14 +88,24 @@ func (c *Client) refreshName() {
 			event.Notify(event.ChangedClientName{c.Id()})
 		}
 	}()
-
+	qubesVmName, _ := xprop.PropValStr(xprop.GetProperty(wm.X, c.Id(), "_QUBES_VMNAME"))
 	newName, _ = ewmh.WmNameGet(wm.X, c.Id())
 	if len(newName) > 0 {
+		if len(qubesVmName) > 0 {
+			newName = "[" + qubesVmName + "] " + newName
+		} else {
+			newName = "[dom0] " + newName
+		}
 		return
 	}
 
 	newName, _ = icccm.WmNameGet(wm.X, c.Id())
 	if len(newName) > 0 {
+		if len(qubesVmName) > 0 {
+			newName = "[" + qubesVmName + "] " + newName
+		} else {
+			newName = "[dom0] " + newName
+		}
 		return
 	}
 

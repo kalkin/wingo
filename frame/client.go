@@ -3,6 +3,7 @@ package frame
 import (
 	"github.com/BurntSushi/xgb/xproto"
 
+	"github.com/BurntSushi/wingo/render"
 	"github.com/BurntSushi/xgbutil/xgraphics"
 	"github.com/BurntSushi/xgbutil/xrect"
 	"github.com/BurntSushi/xgbutil/xwindow"
@@ -14,6 +15,7 @@ type Client interface {
 	IsMaximized() bool
 	Icon(width, height int) *xgraphics.Image
 	Name() string
+	LabelColor() render.Color
 	ClientGeom() xrect.Rect
 	ValidateHeight(height int) int
 	ValidateWidth(width int) int

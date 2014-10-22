@@ -77,9 +77,19 @@ func (c *Client) refreshIcon() {
 
 func (c *Client) refreshName() {
 	var newName string
+	c.qubesVmName, _ = xprop.PropValStr(xprop.GetProperty(wm.X, c.Id(), "_QUBES_VMNAME"))
+	foo, err := xprop.PropValStr(xprop.GetProperty(wm.X, c.Id(), "_QUBES_LABEL"))
+	if err == nil {
+		c.labelColor = int(foo[0])
+	}
 
 	defer func() {
 		if newName != c.name {
+			if len(c.qubesVmName) > 0 {
+				newName = "[" + c.qubesVmName + "] " + newName
+			} else {
+				newName = "[dom0] " + newName
+			}
 			c.name = newName
 			c.frames.full.UpdateTitle()
 			c.prompts.updateName()
@@ -88,24 +98,13 @@ func (c *Client) refreshName() {
 			event.Notify(event.ChangedClientName{c.Id()})
 		}
 	}()
-	qubesVmName, _ := xprop.PropValStr(xprop.GetProperty(wm.X, c.Id(), "_QUBES_VMNAME"))
 	newName, _ = ewmh.WmNameGet(wm.X, c.Id())
 	if len(newName) > 0 {
-		if len(qubesVmName) > 0 {
-			newName = "[" + qubesVmName + "] " + newName
-		} else {
-			newName = "[dom0] " + newName
-		}
 		return
 	}
 
 	newName, _ = icccm.WmNameGet(wm.X, c.Id())
 	if len(newName) > 0 {
-		if len(qubesVmName) > 0 {
-			newName = "[" + qubesVmName + "] " + newName
-		} else {
-			newName = "[dom0] " + newName
-		}
 		return
 	}
 

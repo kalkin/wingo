@@ -94,6 +94,9 @@ func (f *Full) newButtonMinimize() *piece {
 }
 
 func (f *Full) newTitleBar() *piece {
+
+	f.theme.ATitleColor = f.client.LabelColor()
+
 	imgA := render.NewBorder(f.X, 0, render.NoColor, f.theme.ATitleColor,
 		1, f.theme.TitleSize,
 		render.GradientVert, render.GradientRegular)

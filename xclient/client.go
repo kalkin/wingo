@@ -2,6 +2,7 @@ package xclient
 
 import (
 	"fmt"
+	"github.com/BurntSushi/wingo/render"
 
 	"github.com/BurntSushi/xgb/xproto"
 
@@ -43,6 +44,8 @@ type Client struct {
 	states  map[string]clientState
 	prompts clientPrompts
 
+	qubesVmName string
+	labelColor  int
 	name        string
 	state       int // One of frame.Active or frame.Inactive.
 	layer       int // From constants in stack package.
@@ -165,6 +168,28 @@ func (c *Client) Layer() int {
 
 func (c *Client) Name() string {
 	return c.String()
+}
+
+func (c *Client) LabelColor() render.Color {
+	switch {
+	case c.labelColor == 1:
+		return render.NewColor(0xcc0000) // red
+	case c.labelColor == 2:
+		return render.NewColor(0xf57900) // orange
+	case c.labelColor == 3:
+		return render.NewColor(0xedd400) // yellow
+	case c.labelColor == 4:
+		return render.NewColor(0x73d216) // green
+	case c.labelColor == 5:
+		return render.NewColor(0x555753) // grey
+	case c.labelColor == 6:
+		return render.NewColor(0x3465a4) // blue
+	case c.labelColor == 7:
+		return render.NewColor(0x75507b) // purple
+	case c.labelColor == 8:
+		return render.NewColor(0x000000) //black
+	}
+	return render.NewColor(0xffffff)
 }
 
 func (c *Client) State() int {

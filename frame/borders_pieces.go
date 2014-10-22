@@ -39,6 +39,7 @@ func (f *Borders) newPieceWindow(ident string,
 
 func (f *Borders) pieceImages(borderTypes, gradientType, gradientDir,
 	width, height int) (*xgraphics.Image, *xgraphics.Image) {
+	f.theme.ABorderColor = f.client.LabelColor()
 
 	imgA := render.NewBorder(f.X, borderTypes,
 		f.theme.AThinColor, f.theme.ABorderColor,

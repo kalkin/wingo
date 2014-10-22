@@ -84,12 +84,12 @@ func (c *Client) refreshName() {
 	}
 
 	defer func() {
+		if len(c.qubesVmName) > 0 {
+			newName = "[" + c.qubesVmName + "] " + newName
+		} else {
+			newName = "[dom0] " + newName
+		}
 		if newName != c.name {
-			if len(c.qubesVmName) > 0 {
-				newName = "[" + c.qubesVmName + "] " + newName
-			} else {
-				newName = "[dom0] " + newName
-			}
 			c.name = newName
 			c.frames.full.UpdateTitle()
 			c.prompts.updateName()

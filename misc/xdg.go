@@ -7,25 +7,25 @@ import (
 
 	"github.com/BurntSushi/xdg"
 
-	"github.com/BurntSushi/wingo/logger"
+	"github.com/xsrc/wingo/logger"
 )
 
 var ConfigPaths = xdg.Paths{
 	Override:     "",
 	XDGSuffix:    "wingo",
-	GoImportPath: "github.com/BurntSushi/wingo/config",
+	GoImportPath: "github.com/xsrc/wingo/config",
 }
 
 var DataPaths = xdg.Paths{
 	Override:     "",
 	XDGSuffix:    "wingo",
-	GoImportPath: "github.com/BurntSushi/wingo/data",
+	GoImportPath: "github.com/xsrc/wingo/data",
 }
 
 var ScriptPaths = xdg.Paths{
 	Override:     "",
 	XDGSuffix:    "wingo",
-	GoImportPath: "github.com/BurntSushi/wingo/config",
+	GoImportPath: "github.com/xsrc/wingo/config",
 }
 
 func ConfigFile(name string) string {

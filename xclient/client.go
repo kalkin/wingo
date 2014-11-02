@@ -2,7 +2,7 @@ package xclient
 
 import (
 	"fmt"
-	"github.com/BurntSushi/wingo/render"
+	"github.com/xsrc/wingo/render"
 
 	"github.com/BurntSushi/xgb/xproto"
 
@@ -12,13 +12,13 @@ import (
 	"github.com/BurntSushi/xgbutil/xrect"
 	"github.com/BurntSushi/xgbutil/xwindow"
 
-	"github.com/BurntSushi/wingo/event"
-	"github.com/BurntSushi/wingo/frame"
-	"github.com/BurntSushi/wingo/hook"
-	"github.com/BurntSushi/wingo/logger"
-	"github.com/BurntSushi/wingo/stack"
-	"github.com/BurntSushi/wingo/wm"
-	"github.com/BurntSushi/wingo/workspace"
+	"github.com/xsrc/wingo/event"
+	"github.com/xsrc/wingo/frame"
+	"github.com/xsrc/wingo/hook"
+	"github.com/xsrc/wingo/logger"
+	"github.com/xsrc/wingo/stack"
+	"github.com/xsrc/wingo/wm"
+	"github.com/xsrc/wingo/workspace"
 )
 
 const (

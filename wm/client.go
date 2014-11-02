@@ -3,10 +3,10 @@ package wm
 import (
 	"github.com/BurntSushi/xgb/xproto"
 
-	"github.com/BurntSushi/wingo/frame"
-	"github.com/BurntSushi/wingo/heads"
-	"github.com/BurntSushi/wingo/prompt"
-	"github.com/BurntSushi/wingo/workspace"
+	"github.com/xsrc/wingo/frame"
+	"github.com/xsrc/wingo/heads"
+	"github.com/xsrc/wingo/prompt"
+	"github.com/xsrc/wingo/workspace"
 )
 
 type Client interface {

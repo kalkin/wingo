@@ -3,7 +3,7 @@ package frame
 import (
 	"github.com/BurntSushi/xgb/xproto"
 
-	"github.com/BurntSushi/wingo/render"
+	"github.com/xsrc/wingo/render"
 	"github.com/BurntSushi/xgbutil/xgraphics"
 	"github.com/BurntSushi/xgbutil/xrect"
 	"github.com/BurntSushi/xgbutil/xwindow"

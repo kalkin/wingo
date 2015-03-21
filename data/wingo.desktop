@@ -1,6 +1,7 @@
 [Desktop Entry]
+Encoding=UTF-8
 Name=Wingo
-Comment=Log in using Wingo
+Comment=Wingo
 Exec=/usr/bin/wingo
 TryExec=/usr/bin/wingo
 Icon=/usr/share/wingo/wingo.png
